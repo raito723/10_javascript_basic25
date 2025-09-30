@@ -1,0 +1,2 @@
+# 10_javascript_basic25
+25年度後期JS基礎授業リポジトリ
