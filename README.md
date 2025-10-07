@@ -23,3 +23,9 @@ Btn.addEventListener('click', function () {
 ### 10月7日
 const interests = ['読書', '料理', 'キャンプ'];
 const count = interests.length;
+
+if (変数名 === 値) {
+            真値の場合の処理
+        } else {
+            偽値の場合の処理
+        }
