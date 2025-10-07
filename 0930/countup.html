@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウントアップ装置</title>
+</head>
+
+<body>
+    <p id="counter"></p>
+    <button id="plus">+1</button>
+
+    <script>
+        let count = 0;
+        console.log(count); //コンソールにカウントを表示
+        let counter = document.querySelector('p#counter');
+        // docymentはHTMLのこと
+        console.log(counter);
+        counter.textContent = count;
+
+        const plusBtn = document.querySelector('#plus')
+        console.log(plusBtn)
+
+        let a;
+        a = 10;
+        console.log(a);
+        let b = 20;
+        console.log(b);
+        b = 30;
+        console.log(b);
+    </script>
+</body>
+
+</html>
