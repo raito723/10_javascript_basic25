@@ -19,3 +19,7 @@ Btn.addEventListener('click', function () {
 });
 '''
 書き方を覚えるのにもう少し時間がかかる。
+
+### 10月7日
+const interests = ['読書', '料理', 'キャンプ'];
+const count = interests.length;
