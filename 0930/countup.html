@@ -5,6 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カウントアップ装置</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #counter {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #plus {
+            font-size: 1.5rem;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition:
+                background-color 0.2s ease,
+                transform 0.1s ease;
+        }
+
+        #plus:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,15 +47,24 @@
     <button id="plus">+1</button>
 
     <script>
+        //変数を作って0を代入
         let count = 0;
-        console.log(count); //コンソールにカウントを表示
-        let counter = document.querySelector('p#counter');
-        // docymentはHTMLのこと
-        console.log(counter);
+        //要素を取得して、変数counterに代入
+        let counter = document.querySelector('#counter');
+        //変数の中身を<p>に表示する
         counter.textContent = count;
 
-        const plusBtn = document.querySelector('#plus')
-        console.log(plusBtn)
+        const plusBtn = document.querySelector('#plus');
+        plusBtn.addEventListener('click', function () {
+            //変数countに+1する。
+            count++;
+            //countをcounterに代入して、表示させる。
+            counter.textContent = count;
+        });
+
+
+
+
 
         let a;
         a = 10;
@@ -29,6 +73,7 @@
         console.log(b);
         b = 30;
         console.log(b);
+        // 再宣言はNO
     </script>
 </body>
 
