@@ -80,6 +80,7 @@
     const answers = ['TSIT', 'アポロ11号', '3'];
 
     let index = 0;
+    let score = 0;
     questionElem.textContent = questions[index];
 
     // 回答ボタンクリックでイベント発生
@@ -90,16 +91,22 @@
         //inputから値を取得すると文字列になってしまう！！
         if (answer === answers[index]) {
             console.log('正解です');
-            resultMessage.textContent = 'おみごと！正解です'
+            resultMessage.textContent = 'おみごと！正解です';
+            score++;
         } else {
             console.log('不正解です');
-            resultMessage.textContent = 'ざんねん不正解です'
+            resultMessage.textContent = 'ざんねん不正解です';
         }
 
 
         index++;
         questionElem.textContent = questions[index];
-        answerInput = '';
+        answerInput.value = '';
+        // .length：配列の要素数取得
+        if (index === questions.length) {
+            questionElem.textContent = '3問中' + score + '問正解です';
+            console.log(score);
+        }
 
         console.log(answer);
     });
@@ -128,27 +135,21 @@
     } else {
         console.log('名前が存在しません');
     }
-
-
-    console.log(1 == 1);
-    console.log(1 == '1');//←これもtrueになってしまう
-    console.log(1 === '1');//今はこうすればおｋ
 </script>
 
 <script>
-    const interests = ['読書', '料理', 'キャンプ'];
-    console.log(interests);
-    console.log(interests[2]);
-    console.log(interests[5])
-
-    // 要素の上書き
-    interests[0] = 'さんぽ';
-    console.log(interests);
-
-    interests[3] = 'ゲーム';
-    console.log(interests);
-    const count = interests.length;
-    console.log(count);
+    // 文字列の結合
+    console.log('円周率は、' + 3.14 + 'です');
+    // 文字列と数値の計算
+    console.log('計算結果' + 1234 + 5678);
+    console.log(123 + 456 + 'です');
+    // 文字列型が入った時点から文字列結合になる。
+    console.log('計算結果' + (234 + 456));
+    // 文字列ー数値だったら
+    console.log('2' - 1);
+    console.log('2' * 1);
+    console.log('4' / 2);
 </script>
+
 
 </html>
