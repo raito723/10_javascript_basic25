@@ -1,3 +1,13 @@
+// 10. 関数の定義
+function collorchange(num) {
+    document.body.style.backgroundColor =
+        'rgb(' +
+        settingColors[num].r + ',' +
+        settingColors[num].g + ',' +
+        settingColors[num].b +
+        ')';
+}
+
 // 1. オブジェクトで色を用意
 // 3. 4色制作して、配列にする
 const settingColors =
@@ -30,41 +40,39 @@ window.addEventListener('scroll', function () {
     console.log('すくろーーーる')
     //現在のスクロール位置
     const scrolly = window.scrollY;
-    console.log(scrolly);
+    // console.log(scrolly);
+    // console.log(scrollable);
     // 6. 1 / 4進んだら色が変わるようにする
     // 7. スクロールを4分割
+    // 9. 変数scrollableを4分割
     if (scrolly < (scrollable * 1) / 4) {
-        document.body.style.backgroundColor =
-            'rgb(' +
-            settingColors[0].r + ',' +
-            settingColors[0].g + ',' +
-            settingColors[0].b +
-            ')';
+        // 11. 関数の呼び出し（実行）の実引数
+        collorchange(0);
     } else if (scrolly < (scrollable * 1) / 2) {
-        document.body.style.backgroundColor =
-            'rgb(' +
-            settingColors[1].r + ',' +
-            settingColors[1].g + ',' +
-            settingColors[1].b +
-            ')';
-    } else if (scrolly < (scrollable * 3) < 4) {
-        document.body.style.backgroundColor =
-            'rgb(' +
-            settingColors[2].r + ',' +
-            settingColors[2].g + ',' +
-            settingColors[2].b +
-            ')';
+        collorchange(1);
+    } else if (scrolly < (scrollable * 3) / 4) {
+        collorchange(2);
     } else {
-        'rgb(' +
-            settingColors[3].r + ',' +
-            settingColors[3].g + ',' +
-            settingColors[3].b +
-            ')';
+        collorchange(3);
     }
 })
 
+window.addEventListener('scroll', function () {
+    const button = document.querySelector('.movetoTop');
+    console.log(button);
+    if (window.scrollY >= 500) {
+        button.style.display = 'block';
+    } else {
+        button.style.display = 'none';
+    }
+    console.log(scrollY);
+})
 
-
-// 9. 変数scrollableを4分割
-// 10. 関数の定義
-// 11. 関数の呼び出し（実行）の実引数
+const button = document.querySelector('.movetoTop');
+console.log(button);
+button.addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })
+})

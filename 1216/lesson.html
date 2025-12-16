@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同期・非同期通信</title>
+</head>
+
+<body>
+    <script>
+        // const syncAlert = () => {
+        //     alert('アラートを表示');
+        //     console.log('ログを表示')
+        // }
+        // syncAlert();
+
+        const asyncAlert = () => {
+            setTimeout(function () {
+                alert('アラートを表示');
+            }, 0);
+            console.log('ログ表示');
+        }
+        asyncAlert();
+    </script>
+</body>
+
+</html>

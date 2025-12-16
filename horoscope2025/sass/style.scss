@@ -1,0 +1,158 @@
+@use "sass:math";
+
+// =================================================================
+//  Variables
+// =================================================================
+
+// --- Spacing ---
+$space-xs: 0.25rem; // 4px
+$space-s: 0.5rem; // 8px
+$space-m: 1rem; // 16px
+$space-l: 1.5rem; // 24px
+$space-xl: 2rem; // 32px
+$space-xxl: 2.5rem; // 40px
+$space-xxxl: 3rem; // 48px
+
+// --- Colors ---
+$color-text: #000;
+$color-base: #000;
+$color-main: #000;
+$color-accent: #000;
+$color-bg: #000;
+
+// --- Typography ---
+$font-size-base: 16;
+$font-family-gothic: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+$font-family-mincho: "Times New Roman", Times, "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+
+// --- Breakpoints ---
+$breakpoints: (
+    "tablet": 768px,
+    "desktop": 1024px
+);
+
+
+// =================================================================
+//  Functions
+// =================================================================
+
+// pxをremに変換する
+// @param {number} $px-value - px値
+// @return {string} - rem値
+@function rem($px-value) {
+    @return #{math.div($px-value, $font-size-base)}rem;
+}
+
+// XDのトラッキング値をemに変換する
+// @param {number} $xd-value - XDのトラッキング値
+// @return {string} - em値
+@function ls($xd-value) {
+    @return #{math.div($xd-value, 1000)}em;
+}
+
+
+// =================================================================
+//  Mixins
+// =================================================================
+
+// メディアクエリ (モバイルファースト)
+// @param {string} $breakpoint - $breakpointsのキー
+@mixin mq($breakpoint: desktop) {
+    @media (width >=map-get($breakpoints, $breakpoint)) {
+        @content;
+    }
+}
+
+// インナー幅の指定
+// @param {number} $mw - max-width
+// @param {number} $w  - width
+@mixin inner($mw: 1000px, $w: 90%) {
+    max-width: $mw;
+    width: $w;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+:focus {
+    outline: none;
+}
+
+/* キーボードでフォーカスした時だけ有効 */
+:focus-visible {
+    /* ブラウザ標準の青枠を出す */
+    outline: revert;
+    outline-offset: 2px;
+}
+
+// =================================================================
+//  main
+// =================================================================
+
+body {
+    text-align: center;
+}
+
+img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.none {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    display: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f7f7f7;
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    min-width: 300px;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin: 200px auto;
+}
+
+#modal_color {
+    font-weight: bold;
+}
+
+.image {
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url();
+    margin: 0 auto;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.iconlist {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    row-gap: 20%;
+}
